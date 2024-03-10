@@ -18,20 +18,18 @@ function SearchResult() {
             "day"
           );
           return (
-            <>
-              <TableBody
-                key={book.id}
-                id={book.id}
-                title={book.title}
-                firstName={book.firstName}
-                surName={book.surname}
-                email={book.email}
-                roomId={book.roomId}
-                checkInDate={book.checkInDate}
-                checkOutDate={book.checkOutDate}
-                stayNights={stayNightsTotal}
-              />
-            </>
+            <TableBody
+              key={book.id}
+              id={book.id}
+              title={book.title}
+              firstName={book.firstName}
+              surName={book.surname}
+              email={book.email}
+              roomId={book.roomId}
+              checkInDate={book.checkInDate}
+              checkOutDate={book.checkOutDate}
+              stayNights={stayNightsTotal}
+            />
           );
         })}
       </tbody>
