@@ -1,9 +1,7 @@
 
 
 function CustomerProfile(props) {
-    return<tr>
-            `Customer profile ${props.id}`
-        </tr>
+    return <tr>`Customer {props.id} profile`</tr>;
 
 }
 
