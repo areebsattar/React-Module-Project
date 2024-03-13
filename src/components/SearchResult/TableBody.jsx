@@ -34,6 +34,7 @@ function TableBody(props) {
         <td>{checkInDate}</td>
         <td>{checkOutDate}</td>
         <td>{stayNights}</td>
+        <td><button className="btn-show-customer-profile">Show Profile</button></td>
       </tr>
     </>
   );
