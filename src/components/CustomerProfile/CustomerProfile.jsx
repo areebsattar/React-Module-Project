@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function CustomerProfile({ id }) {
   const [customerProfileData, setCustomerProfileData] = useState(null);
@@ -22,7 +21,12 @@ function CustomerProfile({ id }) {
   }
   return (
     <tr className="customer-row">
-      <td colSpan={2}>{customerProfileData.phoneNumber}</td>
+          <td colSpan={2}>{customerProfileData.phoneNumber}</td>
+          <td colSpan={2} className={customerProfileData.vip ? "vip-customer": ""}>
+          {customerProfileData.vip ? `VIP Customer`: `Regular Customer`}
+          </td>
+          <td>ID: {customerProfileData.id}</td>
+          <td colSpan={2}>More info</td>
     </tr>
   );
 }
