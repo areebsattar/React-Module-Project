@@ -1,9 +1,17 @@
 import Search from "@/components/Search/Search";
 import SearchResult from "../SearchResult/SearchResult";
+import { useState } from "react";
+import BookingForm from "../BookingForm/BookingForm";
+import FakeBookings from "@/data/fakeBookings.json";
 // import SearchResults from "@/componentsSearchResults.js";
-// import FakeBookings from "@/data/fakeBookings.json";
 
 const Bookings = () => {
+  const [bookings, setBookings] = useState([...FakeBookings]);
+
+  const addBooking = (newBooking) => {
+    setBookings((prevBookings) => [...prevBookings, newBooking]);
+  };
+
   const search = (searchVal) => {
     console.info("TO DO!", searchVal);
   };
@@ -11,7 +19,8 @@ const Bookings = () => {
   return (
     <main className="bookings">
       <Search search={search} />
-      <SearchResult />
+      <SearchResult bookings={bookings} />
+      <BookingForm addBooking={addBooking} />
     </main>
   );
 };
