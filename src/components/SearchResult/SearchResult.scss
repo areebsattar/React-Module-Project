@@ -4,8 +4,8 @@ table {
 }
 
 thead {
-  background-color: rgb(31, 11, 31);
-  color: white;
+  background-color: rgb(37, 12, 37);
+  color: rgb(248, 230, 230);
 }
 
 th,
@@ -22,5 +22,5 @@ th {
   cursor: pointer;
 }
 .selected {
-  background-color: skyblue;
+  background-color: rgb(241, 176, 249);
 }
