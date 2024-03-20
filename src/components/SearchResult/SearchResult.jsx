@@ -18,6 +18,7 @@ function SearchResult() {
     }
     setSortConfig({ key, direction });
   };
+  
 
   // Sorting function based on the current sort configuration
   const sortedBookings = [...Bookings].sort((a, b) => {
