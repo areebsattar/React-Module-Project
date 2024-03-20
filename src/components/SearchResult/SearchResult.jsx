@@ -4,6 +4,7 @@ import FakeBookings from "@/data/fakeBookings.json";
 import TableBody from "./TableBody";
 import TableHead from "./TableHead";
 import dayjs from "dayjs";
+import { b } from 'vitest/dist/suite-dF4WyktM';
 
 const Bookings = FakeBookings;
 
@@ -20,8 +21,18 @@ function SearchResult() {
   };
 
   // Sorting function based on the current sort configuration
-  const sortedBookings = [...Bookings].sort((a, b) => {
+  const sortedBookings = [...Bookings].sort((a, b)) => {
     if (sortConfig.key === null) return 0;
+
+    let aValue = a[sortConfig.key];
+    let bValue = b[sortConfig.key];
+
+    //special handling for 'roomId' sorting
+    if (sortConfig.key === 'roomId') {
+      //convert string room IDs to numbers for proper sorting
+      aValue = parseInt(aValue);
+      bValue = parsInt(bValue);
+    }
 
     const sortOrder = sortConfig.direction === 'ascending' ? 1 : -1;
     return a[sortConfig.key].localeCompare(b[sortConfig.key]) * sortOrder;
