@@ -2,6 +2,7 @@ function TableHead() {
   return (
     <>
       <tr>
+        
         <th>ID</th>
         <th>Title</th>
         <th>First name</th>
@@ -11,6 +12,7 @@ function TableHead() {
         <th>Check in date</th>
         <th>Check out date</th>
         <th>Total Nights to Stay</th>
+        
       </tr>
     </>
   );
