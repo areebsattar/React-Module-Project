@@ -9,7 +9,7 @@ test("should render a title", () => {
       image="test-image.jpg"
     />
   );
-  const titleElement = screen.getAllByText("countryName");
+  const titleElement = screen.getByRole("heading", { name: "countryName" });
   expect(titleElement).toBeInTheDocument();
 });
 
