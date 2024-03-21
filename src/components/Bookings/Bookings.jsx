@@ -8,7 +8,7 @@ const Bookings = () => {
 
   const search = (searchVal) => {
     console.info("TO DO!", searchVal);
-    searchValueCase = searchVal.toLowerCase();
+    const searchValueCase = searchVal.toLowerCase();
     const fils = FakeBookings.filter((book) => {
       const firstName = book.firstName.toLowerCase();
       const lastName = book.surname.toLowerCase();
