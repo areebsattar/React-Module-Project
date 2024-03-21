@@ -4,7 +4,7 @@ import cardsData from "@/data/fakeCards.json";
 
 const Deck = (props) => {
   return (
-    <div className="deck">
+    <div className="deck" data-testid="info cards">
       {cardsData.map((city, index) => (
         <Card
           key={index}
