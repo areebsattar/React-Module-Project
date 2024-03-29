@@ -3,20 +3,25 @@ import SearchResult from "../SearchResult/SearchResult";
 import { useState, useEffect } from "react";
 
 const Bookings = () => {
-  const [bookings, setBookings] = useState([]);
+    const [bookings, setBookings] = useState([]);
+    const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://nw6-cyf-hotel.glitch.me/fakebookings")
+    fetch("https://nw6-cyf-hotel.glitch.me/delayed")
       .then((res) => {
         if (!res.ok) {
           throw new Error(`${res.status}: ${getReasonPhrase(res.status)}`);
         }
         return res.json();
       })
-      .then((data) => setBookings(data))
+      .then((data) => {
+        setBookings(data);
+        setLoading(false);
+      })
       .catch((error) => {
         setFetchError(error);
         console.log(error);
+        setLoading(false);
       });
   }),
     [];
@@ -37,7 +42,8 @@ const Bookings = () => {
   return (
     <main className="bookings">
       <Search search={search} />
-      <SearchResult results={bookings} />
+      {loading && <p>Loading Information Please Wait...</p>}
+      {!loading && <SearchResult results={bookings} />}
     </main>
   );
 };
