@@ -1,6 +1,16 @@
 import Search from "@/components/Search/Search";
 import SearchResult from "../SearchResult/SearchResult";
+
+import BookingForm from "../BookingForm/BookingForm";
+import FakeBookings from "@/data/fakeBookings.json";
+// import SearchResults from "@/componentsSearchResults.js";
 import { useState, useEffect } from "react";
+  const addBooking = (newBooking) => {
+    setBookings((prevBookings) => [...prevBookings, newBooking]);
+  };
+
+
+
 
 const Bookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -20,6 +30,7 @@ const Bookings = () => {
       });
   }),
     [];
+
   const search = (searchVal) => {
     console.info("TO DO!", searchVal);
     const searchValueCase = searchVal.toLowerCase();
@@ -37,7 +48,11 @@ const Bookings = () => {
   return (
     <main className="bookings">
       <Search search={search} />
+
+      <BookingForm addBooking={addBooking} />
+
       <SearchResult results={bookings} />
+
     </main>
   );
 };
