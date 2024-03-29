@@ -12,7 +12,7 @@ test("Given a searchInput field with input values entered", () => {
 
 // test("When the form is submitted", () => {
 //   function mockSubmit() {}
-//   render(<Bookings />);
+//   render(<Search search={() => {}} />);
 //   const formElement = screen.getByTestId("form");
 //   const inputElement = screen.getByPlaceholderText("Customer name");
 //   fireEvent.change(inputElement, { target: { value: "Search Name" } });
