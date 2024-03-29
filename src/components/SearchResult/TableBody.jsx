@@ -1,10 +1,16 @@
-import FakeBookings from "@/data/fakeBookings.json";
 import React from "react";
 import { useState } from "react";
+import CustomerProfile from "../CustomerProfile/CustomerProfile";
 function TableBody(props) {
   const [selectedRow, setSelectedRow] = useState("unselect");
+  const [showProfile, setShowProfile] = useState(false);
   function handleSelect() {
     setSelectedRow(selectedRow === "unselect" ? "selected" : "unselect");
+    showProfileHandle();
+  }
+
+  function showProfileHandle() {
+    setShowProfile(!showProfile);
   }
   let {
     id,
@@ -34,7 +40,9 @@ function TableBody(props) {
         <td>{checkInDate}</td>
         <td>{checkOutDate}</td>
         <td>{stayNights}</td>
+        <td><button className="btn-show-customer-profile" onClick={handleSelect}>Show Profile</button></td>
       </tr>
+      {showProfile ? <CustomerProfile id={id}/> : null}
     </>
   );
 }

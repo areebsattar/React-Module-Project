@@ -1,11 +1,18 @@
 import React from "react";
 import "./SearchResult.scss";
-import FakeBookings from "@/data/fakeBookings.json";
+
+import CustomerProfile from "../CustomerProfile/CustomerProfile";
+import Table from "./Table";
+
+
+function SearchResult() {
+
 import TableBody from "./TableBody";
 import TableHead from "./TableHead";
 import dayjs from "dayjs";
 
-function SearchResult({ bookings }) {
+
+function SearchResult({ results}) {
   return (
     <table>
       <thead>
@@ -34,6 +41,16 @@ function SearchResult({ bookings }) {
         })}
       </tbody>
     </table>
+
+function SearchResult(props) {
+  const Bookings = props.results;
+
+  return (
+    <>
+      <Table />
+      <CustomerProfile />
+    </>
+
   );
 }
 export default SearchResult;
