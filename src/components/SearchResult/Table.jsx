@@ -2,6 +2,8 @@ import TableBody from "./TableBody";
 import TableHead from "./TableHead";
 import dayjs from "dayjs";
 import FakeBookings from "@/data/fakeBookings.json";
+import { datepicker } from "js-datepicker";
+import '~js-datepicker/dist/datepicker.min.css';
 
 function Table() {
   const Bookings = FakeBookings;
@@ -37,5 +39,7 @@ function Table() {
     </>
   );
 }
+
+
 
 export default Table;
