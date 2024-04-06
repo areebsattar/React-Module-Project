@@ -5,8 +5,8 @@ import Table from "./Table";
 
 
 
-function SearchResult(props) {
-  const Bookings = props.results;
+function SearchResult() {
+
 
   return (
     <>
