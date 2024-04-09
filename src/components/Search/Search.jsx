@@ -13,6 +13,7 @@ const Search = (props) => {
     event.preventDefault();
     props.search(searchInput);
   };
+
   return (
     <section className="search">
       <header className="search__header">

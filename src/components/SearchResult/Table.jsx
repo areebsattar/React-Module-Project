@@ -1,10 +1,10 @@
 import TableBody from "./TableBody";
 import TableHead from "./TableHead";
 import dayjs from "dayjs";
-import FakeBookings from "@/data/fakeBookings.json";
+// import FakeBookings from "@/data/fakeBookings.json";
 
-function Table() {
-  const Bookings = FakeBookings;
+function Table({ bookings }) {
+  // const Bookings = bookings;
   return (
     <>
       <table>
@@ -12,7 +12,7 @@ function Table() {
           <TableHead />
         </thead>
         <tbody>
-          {Bookings.map((book) => {
+          {bookings.map((book) => {
             const stayNightsTotal = dayjs(book.checkOutDate).diff(
               dayjs(book.checkInDate),
               "day"

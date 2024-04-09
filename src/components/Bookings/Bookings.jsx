@@ -4,41 +4,47 @@ import { useState, useEffect } from "react";
 
 const Bookings = () => {
   const [bookings, setBookings] = useState([]);
+  const [fetchError, setFetchError] = useState(null);
 
   useEffect(() => {
-    fetch("https://nw6-cyf-hotel.glitch.me/fakebookings")
+    fetch("https://cyf-hotel-api.netlify.app/")
       .then((res) => {
         if (!res.ok) {
-          throw new Error(`${res.status}: ${getReasonPhrase(res.status)}`);
+          throw new Error(`${res.status}: ${res.statusText}`);
         }
         return res.json();
       })
       .then((data) => setBookings(data))
       .catch((error) => {
         setFetchError(error);
-        console.log(error);
+        console.error(error);
       });
-  }),
-    [];
+  }, []);
+
   const search = (searchVal) => {
     console.info("TO DO!", searchVal);
     const searchValueCase = searchVal.toLowerCase();
-    const fils = FakeBookings.filter((book) => {
-      const firstName = book.firstName.toLowerCase();
-      const lastName = book.surname.toLowerCase();
+    const filteredBookings = bookings.filter((booking) => {
+      const firstName = booking.firstName.toLowerCase();
+      const lastName = booking.surname.toLowerCase();
       return (
         firstName.includes(searchValueCase) ||
         lastName.includes(searchValueCase)
       );
     });
-    setBookings(fils);
+    setBookings(filteredBookings);
   };
 
   return (
     <main className="bookings">
       <Search search={search} />
-      <SearchResult results={bookings} />
+      {fetchError ? (
+        <div>Error: {fetchError.message}</div>
+      ) : (
+        <SearchResult results={bookings} />
+      )}
     </main>
   );
 };
+
 export default Bookings;
