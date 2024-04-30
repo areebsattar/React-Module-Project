@@ -13,10 +13,11 @@ const App = () => (
       </header>
       <AppHeader />
     </div>
+    <Deck />
     <Bookings />
 
     <Restaurant />
-    <Deck />
+
     <Footer
       details={[
         "123 Fake Street, London, E1 4UD",

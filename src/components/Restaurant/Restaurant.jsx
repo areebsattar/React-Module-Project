@@ -1,4 +1,5 @@
 import Order from "../Order/Order";
+import "./Restaurant.scss";
 
 function Restaurant() {
   return (
