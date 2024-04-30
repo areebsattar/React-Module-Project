@@ -14,6 +14,7 @@ const App = () => (
       <AppHeader />
     </div>
     <Bookings />
+
     <Restaurant />
     <Deck />
     <Footer
@@ -22,7 +23,6 @@ const App = () => (
         "hello@fakehotel.com",
         "0123 456789",
       ]}
-      className="footer"
     />
   </div>
 );

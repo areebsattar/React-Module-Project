@@ -1,11 +1,15 @@
 import Search from "@/components/Search/Search";
 import SearchResult from "../SearchResult/SearchResult";
 import { useState, useEffect } from "react";
-
+import New from "../NewCustomer/New";
 const Bookings = () => {
   const [bookings, setBookings] = useState([]);
   const [fetchError, setFetchError] = useState(null);
 
+  const addBooking = (newBooking) => {
+    const newId = bookings.length + 1;
+    setBookings([...bookings, { id: newId, ...newBooking }]);
+  };
   useEffect(() => {
     fetch("https://cyf-hotel-api.netlify.app/")
       .then((res) => {
@@ -43,6 +47,7 @@ const Bookings = () => {
       ) : (
         <SearchResult results={bookings} />
       )}
+      <New addBooking={addBooking} />
     </main>
   );
 };
