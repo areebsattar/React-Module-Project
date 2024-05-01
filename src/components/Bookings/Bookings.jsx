@@ -41,7 +41,7 @@ const Bookings = () => {
 
   return (
     <main className="bookings">
-      <Search search={search} />
+      <Search search={search} results={bookings} />
       {fetchError ? (
         <div>Error: {fetchError.message}</div>
       ) : (

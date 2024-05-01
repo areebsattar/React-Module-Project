@@ -1,7 +1,7 @@
 import "./Search.scss";
 import SearchButton from "../SearchButton/SearchButton";
 import { useState } from "react";
-// this is just to update
+
 const Search = (props) => {
   const [searchInput, setSearchInput] = useState("");
 
