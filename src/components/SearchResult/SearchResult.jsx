@@ -3,14 +3,10 @@ import "./SearchResult.scss";
 import CustomerProfile from "../CustomerProfile/CustomerProfile";
 import Table from "./Table";
 
-
-
-function SearchResult() {
-
-
+function SearchResult({ results }) {
   return (
     <>
-      <Table />
+      <Table bookings={results} />
       <CustomerProfile />
     </>
   );
