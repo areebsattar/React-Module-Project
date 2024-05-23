@@ -19,7 +19,11 @@ const Search = (props) => {
       <header className="search__header">
         <h4 className="search__heading heading">Search Bookings</h4>
       </header>
-      <form className="search__form" onSubmit={onSubmitHandler}>
+      <form
+        data-testid="form"
+        className="search__form"
+        onSubmit={onSubmitHandler}
+      >
         <label className="search__label" htmlFor="customerName">
           &rarr;
         </label>
